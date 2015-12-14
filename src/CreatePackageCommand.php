@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class CreatePackageCommand extends Command
 {
     /**
-     * The tidy_parase_string options
+     * The tidy_parse_string options
      *
      * @var array
      */
@@ -78,23 +78,12 @@ class CreatePackageCommand extends Command
 		fwrite($composer, $this->createComposerTemplate());
 	}
 
-    /**
-     * Create the phpunit.xml file
-     *
-     * @param $directory
-     */
-    private function createPHPUnitXMLFile($directory)
-	{		
-		$phpunitXMLFile = fopen($directory.'/phpunit.xml', 'a');
-		fwrite($phpunitXMLFile, $this->createPHPUnitXMLTemplate());
-	}
-
-    /**
-     * Create a composer.json template
-     *
-     * @return string
-     */
-    private function createComposerTemplate()
+	/**
+	 * Create a composer.json template
+	 *
+	 * @return string
+	 */
+	private function createComposerTemplate()
 	{
 		$template = [
 			'name' => '',
@@ -115,6 +104,17 @@ class CreatePackageCommand extends Command
 		return json_encode($template, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 	}
 
+    /**
+     * Create the phpunit.xml file
+     *
+     * @param $directory
+     */
+    private function createPHPUnitXMLFile($directory)
+	{		
+		$phpunitXMLFile = fopen($directory.'/phpunit.xml', 'a');
+		fwrite($phpunitXMLFile, $this->createPHPUnitXMLTemplate());
+	}
+	
     /**
      * Create a phpunit.xml template
      *
