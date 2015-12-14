@@ -7,7 +7,7 @@ use JNCampbell\Scaffolder\CreatePackageCommand;
 
 require 'vendor/autoload.php';
 
-$app = new Application("Scaffolder", "1.0");
+$app = new Application("Scaffolder", "1.0.0");
 
 $app->add(new CreatePackageCommand);
 
