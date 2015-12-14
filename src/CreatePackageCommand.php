@@ -1,15 +1,15 @@
 <?php
 
-namespace JCampbell\Command;
+namespace JNCampbell\Scaffolder;
 
-use DomDocument;
-use Symfony\Component\Console\Command\Command as SymfCommand;
+use DOMDocument;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CreatePackageCommand extends SymfCommand
+class CreatePackageCommand extends Command
 {
 	private $tidyParseOptions = [
 		'indent'            => TRUE,
@@ -86,7 +86,7 @@ class CreatePackageCommand extends SymfCommand
 
 	private function createPHPUnitXMLTemplate()
 	{
-		$doc = new DomDocument('1.0', 'UTF-8');
+		$doc = new DOMDocument('1.0', 'UTF-8');
 		$doc->formatOutput = true;
 		$doc->preserveWhitespace = false;
 

@@ -3,7 +3,7 @@
 <?php
 
 use Symfony\Component\Console\Application;
-use JCampbell\Command\CreatePackageCommand;
+use JNCampbell\Scaffolder\CreatePackageCommand;
 
 require 'vendor/autoload.php';
 

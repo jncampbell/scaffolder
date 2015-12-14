@@ -8,5 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
-    'JCampbell\\Command\\' => array($baseDir . '/src'),
+    'JNCampbell\\Scaffolder\\' => array($baseDir . '/src'),
 );

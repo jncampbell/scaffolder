@@ -1,7 +1,7 @@
 {
-    "name": "jncampbell/create-package-command",
-    "description": "A terminal command to create the foundation of a php package",
-    "type": "terminal-command",
+    "name": "jncampbell/scaffolder",
+    "description": "A terminal command to generate php package boilerplate",
+    "type": "command-line tool",
     "require": {
         "symfony/console": "^3.0"
     },
@@ -14,7 +14,7 @@
     ], 
     "autoload": {
     	"psr-4" :  {
-    		"JCampbell\\Command\\" : "src"
+    		"JNCampbell\\Scaffolder\\" : "src"
     	}
     },
     "bin": ["bin/scaffolder"]
