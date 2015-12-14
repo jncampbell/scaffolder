@@ -114,7 +114,7 @@ class CreatePackageCommand extends Command
 		$phpunitXMLFile = fopen($directory.'/phpunit.xml', 'a');
 		fwrite($phpunitXMLFile, $this->createPHPUnitXMLTemplate());
 	}
-	
+
     /**
      * Create a phpunit.xml template
      *
