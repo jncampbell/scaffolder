@@ -1,7 +1,7 @@
 {
     "name": "jncampbell/scaffolder",
     "description": "A terminal command to generate php package boilerplate",
-    "type": "command-line tool",
+    "type": "command-line-tool",
     "license": "MIT",
     "homepage": "https://github.com/JNCampbell/scaffolder",
     "keyword": ["template, boilerplate, generator"],
