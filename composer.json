@@ -2,16 +2,18 @@
     "name": "jncampbell/scaffolder",
     "description": "A terminal command to generate php package boilerplate",
     "type": "command-line tool",
-    "require": {
-        "symfony/console": "^3.0"
-    },
     "license": "MIT",
+    "homepage": "https://github.com/JNCampbell/scaffolder",
+    "keyword": ["template, boilerplate, generator"],
     "authors": [
         {
             "name": "James Campbell",
             "email": "campbellnjames@gmail.com"
         }
-    ], 
+    ],
+    "require": {
+        "symfony/console": "^3.0"
+    },
     "autoload": {
     	"psr-4" :  {
     		"JNCampbell\\Scaffolder\\" : "src"
