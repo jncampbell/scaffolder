@@ -1,0 +1,21 @@
+{
+    "name": "jncampbell/create-package-command",
+    "description": "A terminal command to create the foundation of a php package",
+    "type": "terminal-command",
+    "require": {
+        "symfony/console": "^3.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Campbell",
+            "email": "campbellnjames@gmail.com"
+        }
+    ], 
+    "autoload": {
+    	"psr-4" :  {
+    		"JCampbell\\Command\\" : "src"
+    	}
+    },
+    "bin": ["bin/scaffolder"]
+}

@@ -1,0 +1,14 @@
+#! /usr/bin/env php
+
+<?php
+
+use Symfony\Component\Console\Application;
+use JCampbell\Command\CreatePackageCommand;
+
+require 'vendor/autoload.php';
+
+$app = new Application("Scaffolder", "1.0");
+
+$app->add(new CreatePackageCommand);
+
+$app->run();
