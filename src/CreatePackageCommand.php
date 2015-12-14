@@ -11,7 +11,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CreatePackageCommand extends Command
 {
-	private $tidyParseOptions = [
+    /**
+     * The tidy_parase_string options
+     *
+     * @var array
+     */
+    private $tidyParseOptions = [
 		'indent'            => TRUE,
 		'indent-attributes' => TRUE,
 		'input-xml'         => TRUE,
@@ -20,7 +25,12 @@ class CreatePackageCommand extends Command
 		'indent-spaces'     => 4
 	];
 
-	public function configure()
+    /**
+     * Configure the command options
+     *
+     * @return void
+     */
+    public function configure()
 	{
 		$this->setName('new')
 			 ->setDescription('Generate boilerplate for a new php package')
@@ -28,7 +38,13 @@ class CreatePackageCommand extends Command
 			 ->addOption('playground', null, InputOption::VALUE_NONE, 'Add a public folder with an index.php file');
 	}
 
-	public function execute(InputInterface $input, OutputInterface $output)
+    /**
+     * Execute the command
+     *
+     * @param InputInterface  $input
+     * @param OutputInterface $output
+     */
+    public function execute(InputInterface $input, OutputInterface $output)
 	{
 		$directory = getcwd() . '/' . $input->getArgument('name');
 
@@ -52,18 +68,33 @@ class CreatePackageCommand extends Command
 		$output->writeln('<info>Package boilerplate generated!<info>');
 	}
 
-	private function createComposerFile($directory) {
+    /**
+     * Create the composer.json file
+     *
+     * @param $directory
+     */
+    private function createComposerFile($directory) {
 		$composer = fopen($directory.'/composer.json', 'a');
 		fwrite($composer, $this->createComposerTemplate());
 	}
 
-	private function createPHPUnitXMLFile($directory) 
+    /**
+     * Create the phpunit.xml file
+     *
+     * @param $directory
+     */
+    private function createPHPUnitXMLFile($directory)
 	{		
 		$phpunitXMLFile = fopen($directory.'/phpunit.xml', 'a');
 		fwrite($phpunitXMLFile, $this->createPHPUnitXMLTemplate());
 	}
 
-	private function createComposerTemplate()
+    /**
+     * Create a composer.json template
+     *
+     * @return string
+     */
+    private function createComposerTemplate()
 	{
 		$template = [
 			'name' => '',
@@ -84,7 +115,12 @@ class CreatePackageCommand extends Command
 		return json_encode($template, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 	}
 
-	private function createPHPUnitXMLTemplate()
+    /**
+     * Create a phpunit.xml template
+     *
+     * @return bool
+     */
+    private function createPHPUnitXMLTemplate()
 	{
 		$doc = new DOMDocument('1.0', 'UTF-8');
 		$doc->formatOutput = true;
@@ -106,7 +142,7 @@ class CreatePackageCommand extends Command
 		$testsuite = $testsuites->addChild('testsuite');
 		$testsuite->addAttribute('name', 'Package Test Suite');
 
-		$directory = $testsuite->addChild('directory', './tests/');
+		$testsuite->addChild('directory', './tests/');
 
 		return tidy_parse_string($doc->saveXML(), $this->tidyParseOptions);
 	}
