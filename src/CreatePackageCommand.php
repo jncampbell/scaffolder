@@ -127,7 +127,7 @@ class CreatePackageCommand extends Command
 		$doc->preserveWhitespace = false;
 
 		$phpunit = $doc->appendChild($doc->createElement( 'phpunit' ));
-		$phpunit->setAttribute('bootstrap', '');
+		$phpunit->setAttribute('bootstrap', './vendor/autoload.php');
 		$phpunit->setAttribute('backupGlobals', 'false');
 		$phpunit->setAttribute('colors', 'true');
 		$phpunit->setAttribute('convertErrorsToExceptions', 'true');
