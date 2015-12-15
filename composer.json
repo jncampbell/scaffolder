@@ -19,5 +19,5 @@
     		"JNCampbell\\Scaffolder\\" : "src"
     	}
     },
-    "bin": ["bin/scaffolder"]
+    "bin": ["scaffolder"]
 }
