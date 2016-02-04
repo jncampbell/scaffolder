@@ -1,40 +1,34 @@
 # Scaffolder 
-The Scaffolder package generates the boilerplate for a php package. Running the command creates a directory that includes an src directory, a tests directory, a pre-filled composer.json file, a pre-filled phpunit.xml file and optionally, a public folder with an index.php file.
-* * *
-
-
+The Scaffolder package generates the boilerplate for a php package. Running the command creates the following directory structure:
+```
+  packageName/    
+   |–composer.json (w/ boilerplate)
+   |–phpunit.xml   (w/ boilerplate)
+   |–src/ 
+   |–tests/
+   |–public/ (optional w/ --playground option)
+      |–index.php
+```
 ## Requirements
- - PHP 5.0.0 or later
- - php5-tidy (to pre-fill the phpunit.xml file)
-
+ - PHP
 
 ## Installation 
 #### Globally (Composer)
 `$ composer global require jncampbell/scaffolder`
 
-Make sure you have `~/.composer/vendor/bin` in your `PATH`:  
-
-`export PATH=$PATH:~/.composer/vendor/bin`
- 
 #### Locally (Composer)
-```json
-    "require": {  
-        "jncampbell/scaffolder": "1.0.*"  
-    }
-```
-Make sure you have `vendor/bin` in your `PATH`:
+`$ composer require jncampbell/scaffolder`
 
-`export PATH=$PATH:vendor/bin`
+## Usage
+The command will be stored in your vendor/bin directory
 
-
-## Usage   
 The `scaffolder new` command generates the boilerplate. A name is required.  
 
-    $ scaffolder new nameOfYourPackage
+    $ vendor/bin/scaffolder new nameOfYourPackage
 
 The `--playground` option creates a public folder with an index.php page 
 
-    $ scaffolder new nameOfYourPackage --playground
+    $ vendor/bin/scaffolder new nameOfYourPackage --playground
     
 Once the boilerplate is generated, fill in the composer.json with your package's information, `cd` into your package directory and run a `composer install`. Then begin building your package.
 
