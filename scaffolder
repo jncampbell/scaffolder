@@ -2,8 +2,9 @@
 
 <?php
 
-use Symfony\Component\Console\Application;
+use JNCampbell\Scaffolder\CreateFrontendAssetsCommand;
 use JNCampbell\Scaffolder\CreatePackageCommand;
+use Symfony\Component\Console\Application;
 
 if (file_exists(__DIR__.'/../../autoload.php')) {
     require __DIR__.'/../../autoload.php';
@@ -14,5 +15,6 @@ if (file_exists(__DIR__.'/../../autoload.php')) {
 $app = new Application("Scaffolder", "1.0.0");
 
 $app->add(new CreatePackageCommand);
+$app->add(new CreateFrontendAssetsCommand);
 
 $app->run();
